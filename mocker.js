@@ -41,7 +41,8 @@ router.post('/api/:url',(req, res) => {
         res.status(status);
         res.json(data);
     } catch(e) {
-        res.json({err: `Path doesn't exits`});
+        res.status(404);
+        res.json({err: `Server reloaded, Path doesn't exits Anymore, please save Mock again`});
     }
 });
 
@@ -52,7 +53,8 @@ router.put('/api/:url',(req, res) => {
         res.status(status);
         res.json(data);
     } catch(e) {
-        res.json({err: `Path doesn't exits`});
+        res.status(404);
+        res.json({err: `Server reloaded, Path doesn't exits Anymore, please save Mock again`});
     }
 });
 
@@ -63,7 +65,8 @@ router.delete('/api/:url',(req, res) => {
         res.status(status);
         res.json(data);
     } catch(e) {
-        res.json({err: `Path doesn't exits`});
+        res.status(404);
+        res.json({err: `Server reloaded, Path doesn't exits Anymore, please save Mock again`});
     }
 });
 
@@ -74,7 +77,8 @@ router.post('/save-mock', (req, res) => {
 
         res.json({url:`/api/${name}`, mocks: mocks[type]});
     } catch(e) {
-        res.json(e)
+        res.status(500);
+        res.json({error: e});
     }
 });
 
