@@ -1,17 +1,19 @@
 const express = require('express');
 const router = express.Router();
 
+const test = {data: {'data': 'test'}, status: 200};
+
 const GET = {
-    test: {'data': 'test'}
+    test
 };
 const POST = {
-    test: {'data': 'test'}
+    test
 };
 const PUT = {
-    test: {'data': 'test'}
+    test
 };
 const DELETE = {
-    test: {'data': 'test'}
+    test
 };
 
 const mocks = {
@@ -24,7 +26,9 @@ const mocks = {
 router.get('/api/:url',(req, res) => {
     try {
         const path = req.params.url;
-        res.json(mocks.GET[path]);
+        const {data, status} = mocks.GET[path];
+        res.status(status);
+        res.json(data);
     } catch(e) {
         res.json({err: `Path doesn't exits`});
     }
@@ -33,7 +37,9 @@ router.get('/api/:url',(req, res) => {
 router.post('/api/:url',(req, res) => {
     try {
         const path = req.params.url;
-        res.json(mocks.POST[path]);
+        const {data, status} = mocks.POST[path];
+        res.status(status);
+        res.json(data);
     } catch(e) {
         res.json({err: `Path doesn't exits`});
     }
@@ -42,7 +48,9 @@ router.post('/api/:url',(req, res) => {
 router.put('/api/:url',(req, res) => {
     try {
         const path = req.params.url;
-        res.json(mocks.PUT[path]);
+        const {data, status} = mocks.PUT[path];
+        res.status(status);
+        res.json(data);
     } catch(e) {
         res.json({err: `Path doesn't exits`});
     }
@@ -51,7 +59,9 @@ router.put('/api/:url',(req, res) => {
 router.delete('/api/:url',(req, res) => {
     try {
         const path = req.params.url;
-        res.json(mocks.DELETE[path]);
+        const {data, status} = mocks.DELETE[path];
+        res.status(status);
+        res.json(data);
     } catch(e) {
         res.json({err: `Path doesn't exits`});
     }
@@ -59,8 +69,8 @@ router.delete('/api/:url',(req, res) => {
 
 router.post('/save-mock', (req, res) => {
     try {
-        const {code, type, name} = req.body;
-        mocks[type][name] = code;
+        const {code, type, name, status} = req.body;
+        mocks[type][name] = {data: code, status};
 
         res.json({url:`/api/${name}`, mocks: mocks[type]});
     } catch(e) {

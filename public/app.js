@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 **/`,
             req: 'GET',
-            name: ''
+            name: '',
+            status: 200
         }),
         methods: {
             highlighter(code) {
@@ -27,7 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     const req = await axios.post('/save-mock', {
                         code: jsonParse,
                         type: this.req,
-                        name: this.name
+                        name: this.name,
+                        status: parseInt(this.status)
                     });
                     const data = req.data;
                     alert(`Mock saved in route ${window.location.protocol}//${window.location.host}${data.url}`);

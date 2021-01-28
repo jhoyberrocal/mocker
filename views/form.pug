@@ -9,8 +9,11 @@ block content
                     option(value='POST') POST
                     option(value='PUT') PUT
                     option(value='DELETE') DELETE
-            .col-3.align-self-center.my-4
+            .col-6.align-self-center.my-4
                 button.btn.btn-primary.mt-3(type='button', @click='saveMock', :disabled='!name') Guardar Mock
+            .col-2.my-3
+                label Status
+                input.form-control(type='number', v-model='status')
             .col-6.my-3
                 label Name for route without /
                 input.form-control(type='text', v-model='name')
