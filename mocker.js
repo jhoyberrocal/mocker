@@ -30,7 +30,8 @@ router.get('/api/:url',(req, res) => {
         res.status(status);
         res.json(data);
     } catch(e) {
-        res.json({err: `Path doesn't exits`});
+        res.status(404);
+        res.json({err: `Server reloaded, Path doesn't exits Anymore, please save Mock again`});
     }
 });
 
