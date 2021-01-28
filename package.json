@@ -1,0 +1,19 @@
+{
+  "name": "mocker",
+  "version": "1.0.0",
+  "description": "Mock responses",
+  "main": "index.js",
+  "scripts": {
+    "start": "node main.js",
+    "dev": "npx nodemon main.js --watch"
+  },
+  "author": "Jhoy Berrocal",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.0"
+  }
+}

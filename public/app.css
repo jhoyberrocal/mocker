@@ -1,0 +1,16 @@
+.my-editor {
+    background: #23292e;
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 5px;
+    font-family: "Menlo", "Fira Code", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+.height-200 {
+    min-height: 200px;
+}
+
+.preview {
+    height: 120px;
+}

@@ -1,0 +1,31 @@
+html
+    head
+        title Mocker
+        meta(charset='utf-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+        link(href='/vendor/bootstrap.css', rel='stylesheet')
+        link(href='/fonts/font.css')
+        link(rel='stylesheet' href='/vendor/prism.css')
+        link(rel='stylesheet' href='/app.css')
+        style.
+            html, body {
+                font-family: 'Proxima Nova', 'Roboto', sans-serif;
+            }
+        script(src='https://unpkg.com/axios/dist/axios.min.js')
+        script(src='/vendor/vue.js')
+        script(src='https://unpkg.com/vue-prism-editor')
+        script(src='https://unpkg.com/prismjs/prism.js')
+    body
+        nav.navbar.navbar-light.bg-light.sticky-top
+            .container
+                a.navbar-brand(href='/') Mocker
+                button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarText' aria-controls='navbarText' aria-expanded='false' aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarText.collapse.navbar-collapse
+                    ul.navbar-nav.me-auto.mb-2.mb-lg-0
+                        li.nav-item
+                            a.nav-link.active(aria-current='page' href='/mocks') Mocks saved
+
+        main
+            block content
+        script(src='/vendor/bootstrap.js')

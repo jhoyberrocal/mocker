@@ -1,0 +1,21 @@
+extends layout
+block content
+    #app.container
+        .row
+            .col-6.my-3
+                label Request
+                select.form-select(required, v-model="req")
+                    option(selected='GET') GET
+                    option(value='POST') POST
+                    option(value='PUT') PUT
+                    option(value='DELETE') DELETE
+            .col-3.align-self-center.my-4
+                button.btn.btn-primary.mt-3(type='button', @click='saveMock', :disabled='!name') Guardar Mock
+            .col-6.my-3
+                label Name for route without /
+                input.form-control(type='text', v-model='name')
+            .mb-3.col-12
+                label Mock
+                prism-editor.my-editor.height-200(v-model='code', :highlight='highlighter', line-numbers)
+
+    script(src='/app.js')

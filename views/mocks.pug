@@ -1,0 +1,23 @@
+extends layout
+block content
+    #app.container
+        #accordionExample.accordion.my-3(v-if='mocks')
+            .accordion-item(v-for='(item, idx) in mocks')
+                h2.accordion-header(:id='`head${idx}`')
+                    button.accordion-button.collapsed(type='button',
+                        data-bs-toggle='collapse',
+                        :data-bs-target='`#collapse${idx}`',
+                        :aria-controls='`collapse${idx}`'
+                    ) {{idx}}
+                .accordion-collapse.collapse(
+                    :id='`collapse${idx}`'
+                    :aria-labelledby='`head${idx}`',
+                    data-bs-parent='#accordionExample')
+                    .accordion-body
+                        div(v-for='(code, idx) in item')
+                            div.px-2.py-3.border.border-info.rounded-1
+                                code {{idx}}
+                            prism-editor.my-1.my-editor.preview(v-model='JSON.stringify(code)', :highlight='highlighter', readonly, line-numbers)
+
+    script(src='/list.js')
+
